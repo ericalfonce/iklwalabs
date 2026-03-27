@@ -130,8 +130,7 @@ export default function About() {
               maxWidth: "52ch",
             }}
           >
-            IklwaLabs is a cybersecurity and IT solutions company based in Dar es
-            Salaam, Tanzania. We build tools and services that make digital
+            IklwaLabs is a cybersecurity and IT solutions company based in Arusha, Tanzania. We build tools and services that make digital
             security accessible to African businesses — from SMEs to
             institutions. We believe the continent&apos;s digital future must be
             defended from within.

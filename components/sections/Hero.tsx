@@ -110,7 +110,7 @@ export default function Hero({ animate }: HeroProps) {
             letterSpacing: "0.05em",
           }}
         >
-          Local Time — DAR&nbsp;&nbsp;
+          Local Time — ARU&nbsp;&nbsp;
           <span style={{ color: "#F8FAFC" }}>{time}</span>
         </span>
       </div>
