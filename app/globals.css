@@ -3,25 +3,71 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --navy-deep: #050C1A;
+  --navy: #0A1628;
+  --navy-mid: #0D1F3C;
+  --cyan: #22D3EE;
+  --cyan-dim: #0E7490;
+  --white: #F8FAFC;
+  --muted: #94A3B8;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  /* Let Lenis handle smooth scroll — avoid conflict */
+  scroll-behavior: auto;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #050C1A;
+  color: #F8FAFC;
+  font-family: var(--font-dm-sans), sans-serif;
+}
+
+/* ── Noise grain overlay ── */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9990;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+  background-repeat: repeat;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .font-display {
+    font-family: var(--font-outfit), sans-serif;
+  }
+  .font-mono {
+    font-family: var(--font-jetbrains-mono), monospace;
+  }
+}
+
+/* ── Mobile responsiveness ── */
+@media (max-width: 768px) {
+  /* Hero headline */
+  .hero-headline {
+    font-size: 10vw !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  /* Two-column → single column (About, MulikaScans) */
+  .two-col-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+
+  /* MulikaScans terminal: un-sticky on mobile */
+  .terminal-sticky {
+    position: relative !important;
+    top: 0 !important;
+  }
+
+  /* Tighter section padding on mobile */
+  section {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
   }
 }

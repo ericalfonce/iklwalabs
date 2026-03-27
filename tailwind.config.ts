@@ -9,8 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        "navy-deep": "var(--navy-deep)",
+        navy: "var(--navy)",
+        "navy-mid": "var(--navy-mid)",
+        cyan: "var(--cyan)",
+        "cyan-dim": "var(--cyan-dim)",
+        white: "var(--white)",
+        muted: "var(--muted)",
+      },
+      fontFamily: {
+        display: ["var(--font-outfit)", "sans-serif"],
+        sans: ["var(--font-dm-sans)", "sans-serif"],
+        mono: ["var(--font-jetbrains-mono)", "monospace"],
       },
     },
   },
