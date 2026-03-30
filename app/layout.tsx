@@ -91,6 +91,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://iklwalabs.co.tz",
   },
+  verification: {
+    google: "-gHmT4VBw3klcknp6Y7Yquko--i5Aa9Y-5RvUCVkCII",
+  },
 };
 
 export default function RootLayout({
