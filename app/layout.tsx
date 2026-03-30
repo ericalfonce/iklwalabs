@@ -3,6 +3,7 @@ import { Outfit, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Cursor from "@/components/Cursor";
 import SmoothScroll from "@/components/SmoothScroll";
+import JsonLd from "@/components/JsonLd";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -23,8 +24,37 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://iklwalabs.com"),
-  title: "IklwaLabs — Cybersecurity & IT Solutions, Tanzania",
+  metadataBase: new URL("https://iklwalabs.co.tz"),
+  title: {
+    default: "IklwaLabs — Cybersecurity & IT Solutions | Arusha, Tanzania",
+    template: "%s | IklwaLabs",
+  },
+  description:
+    "IklwaLabs is a cybersecurity and IT solutions company based in Arusha, Tanzania. We offer web vulnerability scanning, digital forensics, security training, and IT infrastructure services for African SMEs.",
+  keywords: [
+    "cybersecurity Tanzania",
+    "cybersecurity company Arusha",
+    "web vulnerability scanner Tanzania",
+    "IT security East Africa",
+    "digital forensics Tanzania",
+    "website security audit Tanzania",
+    "MulikaScans",
+    "IklwaLabs",
+    "cybersecurity SME Africa",
+  ],
+  authors: [{ name: "IklwaLabs", url: "https://iklwalabs.co.tz" }],
+  creator: "IklwaLabs",
+  publisher: "IklwaLabs",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -32,15 +62,16 @@ export const metadata: Metadata = {
       { url: "/favicon.svg", type: "image/svg+xml" },
     ],
     apple: "/apple-touch-icon.png",
+    other: [{ rel: "manifest", url: "/site.webmanifest" }],
   },
-  description:
-    "IklwaLabs secures African businesses with web vulnerability scanning, digital forensics, and IT solutions. Based in Arusha, Tanzania.",
   openGraph: {
-    title: "IklwaLabs — Cybersecurity & IT Solutions, Tanzania",
-    description:
-      "IklwaLabs secures African businesses with web vulnerability scanning, digital forensics, and IT solutions. Based in Arusha, Tanzania.",
-    url: "https://iklwalabs.com",
+    type: "website",
+    locale: "en_TZ",
+    url: "https://iklwalabs.co.tz",
     siteName: "IklwaLabs",
+    title: "IklwaLabs — Cybersecurity & IT Solutions | Arusha, Tanzania",
+    description:
+      "Securing African businesses with web vulnerability scanning, digital forensics, and IT solutions. Based in Arusha, Tanzania.",
     images: [
       {
         url: "/og-image.png",
@@ -49,15 +80,16 @@ export const metadata: Metadata = {
         alt: "IklwaLabs — Cybersecurity & IT Solutions",
       },
     ],
-    locale: "en_US",
-    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "IklwaLabs — Cybersecurity & IT Solutions, Tanzania",
+    title: "IklwaLabs — Cybersecurity & IT Solutions | Arusha, Tanzania",
     description:
-      "IklwaLabs secures African businesses with web vulnerability scanning, digital forensics, and IT solutions.",
+      "Securing African businesses with web vulnerability scanning, digital forensics, and IT solutions.",
     images: ["/og-image.png"],
+  },
+  alternates: {
+    canonical: "https://iklwalabs.co.tz",
   },
 };
 
@@ -71,9 +103,8 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${dmSans.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
+        <JsonLd />
+        <SmoothScroll>{children}</SmoothScroll>
         <Cursor />
       </body>
     </html>
