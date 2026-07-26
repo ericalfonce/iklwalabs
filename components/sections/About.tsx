@@ -57,79 +57,26 @@ export default function About() {
   return (
     <section
       ref={sectionRef}
-      style={{
-        backgroundColor: "#050C1A",
-        minHeight: "100vh",
-        padding: "1.5rem 2rem",
-        boxSizing: "border-box",
-        display: "flex",
-        flexDirection: "column",
-        position: "relative",
-        overflow: "hidden",
-      }}
+      className="relative bg-navy-deep min-h-screen py-6 px-8 flex flex-col overflow-hidden"
     >
       {/* Section number */}
-      <span
-        style={{
-          fontFamily: "var(--font-jetbrains-mono), monospace",
-          fontSize: "12px",
-          color: "#94A3B8",
-          letterSpacing: "0.12em",
-          marginBottom: "3rem",
-        }}
-      >
+      <span className="font-mono text-[12px] text-muted tracking-[0.12em] mb-12">
         /02
       </span>
 
       {/* Main content area */}
-      <div
-        className="two-col-grid"
-        style={{
-          flex: 1,
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "4rem",
-          alignItems: "start",
-          paddingTop: "4rem",
-          paddingBottom: "6rem",
-        }}
-      >
+      <div className="two-col-grid flex-1 grid grid-cols-2 gap-16 items-start pt-16 pb-24">
         {/* Left column — headline + body */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
+        <div className="flex flex-col gap-10">
           <h2
             ref={headlineRef}
-            style={{
-              fontFamily: "var(--font-outfit), sans-serif",
-              fontSize: "clamp(2rem, 5vw, 5rem)",
-              lineHeight: 1.1,
-              color: "#F8FAFC",
-              margin: 0,
-              fontWeight: 700,
-              letterSpacing: "-0.02em",
-            }}
+            className="font-display text-[clamp(2rem,5vw,5rem)] leading-[1.1] text-white m-0 font-bold tracking-[-0.02em]"
           >
             Not an agency —{" "}
-            <em
-              style={{
-                fontStyle: "italic",
-                fontWeight: 300,
-                color: "#F8FAFC",
-              }}
-            >
-              just us.
-            </em>
+            <em className="italic font-light text-white">just us.</em>
           </h2>
 
-          <p
-            style={{
-              fontFamily: "var(--font-dm-sans), sans-serif",
-              fontSize: "18px",
-              lineHeight: 1.8,
-              color: "#94A3B8",
-              margin: 0,
-              maxWidth: "52ch",
-            }}
-          >
+          <p className="font-sans text-[18px] leading-[1.8] text-muted m-0 max-w-[52ch]">
             IklwaLabs is a cybersecurity and IT solutions company based in Arusha, Tanzania. We build tools and services that make digital
             security accessible to African businesses — from SMEs to
             institutions. We believe the continent&apos;s digital future must be
@@ -138,14 +85,7 @@ export default function About() {
         </div>
 
         {/* Right column — stat blocks (off-grid) */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "2rem",
-            paddingTop: "5rem",
-          }}
-        >
+        <div className="flex flex-col gap-8 pt-20">
           <StatBlock
             ref={stat1Ref}
             rotation="-1.5deg"
@@ -154,7 +94,7 @@ export default function About() {
           <StatBlock
             ref={stat2Ref}
             rotation="1deg"
-            label="IklwaLabs · Digital Forensics &amp; Cybersecurity"
+            label="IklwaLabs · Digital Forensics & Cybersecurity"
             alignRight
           />
         </div>
@@ -176,24 +116,15 @@ const StatBlock = forwardRef<HTMLDivElement, StatBlockProps>(
     return (
       <div
         ref={ref}
+        className={`border border-[rgba(34,211,238,0.10)] p-5 max-w-[280px] ${
+          alignRight ? "self-end" : "self-start"
+        }`}
         style={{
-          border: "1px solid rgba(34, 211, 238, 0.10)",
-          padding: "20px",
           transform: `rotate(${rotation})`,
-          alignSelf: alignRight ? "flex-end" : "flex-start",
-          maxWidth: "280px",
           opacity: 0, // GSAP will animate this
         }}
       >
-        <span
-          style={{
-            fontFamily: "var(--font-jetbrains-mono), monospace",
-            fontSize: "12px",
-            color: "#94A3B8",
-            letterSpacing: "0.08em",
-            lineHeight: 1.6,
-          }}
-        >
+        <span className="font-mono text-[12px] text-muted tracking-[0.08em] leading-[1.6]">
           {label}
         </span>
       </div>

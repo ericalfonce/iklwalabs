@@ -8,7 +8,7 @@ export default function Cursor() {
   const target = useRef({ x: -100, y: -100 });
   const scale = useRef(1);
   const currentScale = useRef(1);
-  const rafRef = useRef<number>();
+  const rafRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     // Only activate on pointer devices

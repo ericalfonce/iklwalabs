@@ -54,100 +54,42 @@ export default function MulikaScans() {
   return (
     <section
       ref={sectionRef}
+      className="relative bg-navy-deep min-h-screen pt-6 px-8 pb-0 flex flex-col overflow-hidden"
       style={{
-        backgroundColor: "#050C1A",
-        minHeight: "100vh",
-        padding: "1.5rem 2rem 0",
-        boxSizing: "border-box",
-        display: "flex",
-        flexDirection: "column",
-        position: "relative",
-        overflow: "hidden",
         // Radial glow
         backgroundImage:
           "radial-gradient(ellipse 60% 50% at 60% 40%, rgba(34, 211, 238, 0.03) 0%, transparent 70%)",
       }}
     >
       {/* Section number */}
-      <span
-        style={{
-          fontFamily: "var(--font-jetbrains-mono), monospace",
-          fontSize: "12px",
-          color: "#94A3B8",
-          letterSpacing: "0.12em",
-          marginBottom: "3rem",
-        }}
-      >
+      <span className="font-mono text-[12px] text-muted tracking-[0.12em] mb-12">
         /03
       </span>
 
       {/* Two-column body */}
       <div
-        className="two-col-grid"
-        style={{
-          flex: 1,
-          display: "grid",
-          gridTemplateColumns: "60fr 40fr",
-          gap: "5rem",
-          alignItems: "start",
-          paddingBottom: "5rem",
-        }}
+        className="two-col-grid flex-1 grid gap-20 items-start pb-20"
+        style={{ gridTemplateColumns: "60fr 40fr" }}
       >
         {/* ── Left column ── */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "1.75rem" }}>
+        <div className="flex flex-col gap-7">
           {/* Eyebrow */}
-          <span
-            style={{
-              fontFamily: "var(--font-jetbrains-mono), monospace",
-              fontSize: "11px",
-              color: "#22D3EE",
-              letterSpacing: "0.22em",
-              textTransform: "uppercase",
-            }}
-          >
+          <span className="font-mono text-[11px] text-cyan tracking-[0.22em] uppercase">
             Flagship Product
           </span>
 
           {/* Headline */}
-          <h2
-            style={{
-              fontFamily: "var(--font-outfit), sans-serif",
-              fontSize: "clamp(3rem, 8vw, 8rem)",
-              fontWeight: 700,
-              lineHeight: 1.0,
-              color: "#F8FAFC",
-              margin: 0,
-              letterSpacing: "-0.03em",
-            }}
-          >
+          <h2 className="font-display text-[clamp(3rem,8vw,8rem)] font-bold leading-none text-white m-0 tracking-[-0.03em]">
             MulikaScans
           </h2>
 
           {/* Subheadline */}
-          <p
-            style={{
-              fontFamily: "var(--font-outfit), sans-serif",
-              fontSize: "clamp(1rem, 2vw, 1.6rem)",
-              fontWeight: 300,
-              color: "#94A3B8",
-              margin: 0,
-              lineHeight: 1.4,
-            }}
-          >
+          <p className="font-display text-[clamp(1rem,2vw,1.6rem)] font-light text-muted m-0 leading-[1.4]">
             AI-Powered Web Vulnerability Scanner for African SMEs
           </p>
 
           {/* Body */}
-          <p
-            style={{
-              fontFamily: "var(--font-dm-sans), sans-serif",
-              fontSize: "16px",
-              lineHeight: 1.8,
-              color: "#94A3B8",
-              margin: 0,
-              maxWidth: "56ch",
-            }}
-          >
+          <p className="font-sans text-[16px] leading-[1.8] text-muted m-0 max-w-[56ch]">
             Most African SMEs can&apos;t afford enterprise security tools.
             MulikaScans changes that — automated web vulnerability scanning,
             plain-language reports, and actionable remediation steps. Built for
@@ -155,20 +97,11 @@ export default function MulikaScans() {
           </p>
 
           {/* Feature pills */}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem" }}>
+          <div className="flex flex-wrap gap-[0.6rem]">
             {FEATURE_PILLS.map((pill) => (
               <span
                 key={pill}
-                style={{
-                  fontFamily: "var(--font-jetbrains-mono), monospace",
-                  fontSize: "12px",
-                  color: "#94A3B8",
-                  border: "1px solid rgba(34, 211, 238, 0.30)",
-                  borderRadius: "999px",
-                  padding: "0.3rem 0.9rem",
-                  letterSpacing: "0.04em",
-                  whiteSpace: "nowrap",
-                }}
+                className="font-mono text-[12px] text-muted border border-[rgba(34,211,238,0.30)] rounded-full py-[0.3rem] px-[0.9rem] tracking-[0.04em] whitespace-nowrap"
               >
                 {pill}
               </span>
@@ -184,70 +117,30 @@ export default function MulikaScans() {
         </div>
 
         {/* ── Right column — terminal ── */}
-        <div
-          className="terminal-sticky"
-          style={{
-            backgroundColor: "#0A1628",
-            border: "1px solid rgba(34, 211, 238, 0.10)",
-            borderRadius: "8px",
-            overflow: "hidden",
-            position: "sticky",
-            top: "2rem",
-          }}
-        >
+        <div className="terminal-sticky bg-navy border border-[rgba(34,211,238,0.10)] rounded-lg overflow-hidden sticky top-8">
           {/* Window chrome */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              padding: "0.75rem 1rem",
-              borderBottom: "1px solid rgba(248, 250, 252, 0.05)",
-              backgroundColor: "rgba(5, 12, 26, 0.6)",
-            }}
-          >
-            <span style={{ width: 10, height: 10, borderRadius: "50%", backgroundColor: "#EF4444", display: "inline-block" }} />
-            <span style={{ width: 10, height: 10, borderRadius: "50%", backgroundColor: "#EAB308", display: "inline-block" }} />
-            <span style={{ width: 10, height: 10, borderRadius: "50%", backgroundColor: "#22C55E", display: "inline-block" }} />
-            <span
-              style={{
-                fontFamily: "var(--font-jetbrains-mono), monospace",
-                fontSize: "11px",
-                color: "#94A3B8",
-                marginLeft: "0.5rem",
-                letterSpacing: "0.05em",
-              }}
-            >
+          <div className="flex items-center gap-2 py-3 px-4 border-b border-[rgba(248,250,252,0.05)] bg-[rgba(5,12,26,0.6)]">
+            <span className="w-[10px] h-[10px] rounded-full bg-[#EF4444] inline-block" />
+            <span className="w-[10px] h-[10px] rounded-full bg-[#EAB308] inline-block" />
+            <span className="w-[10px] h-[10px] rounded-full bg-[#22C55E] inline-block" />
+            <span className="font-mono text-[11px] text-muted ml-2 tracking-[0.05em]">
               mulika — scan report
             </span>
           </div>
 
           {/* Scan output */}
-          <div
-            style={{
-              padding: "1.25rem 1.25rem 1.5rem",
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.6rem",
-            }}
-          >
+          <div className="pt-5 px-5 pb-6 flex flex-col gap-[0.6rem]">
             {SCAN_LINES.map((line, i) => (
               <div
                 key={i}
                 ref={(el) => { linesRef.current[i] = el; }}
-                style={{
-                  fontFamily: "var(--font-jetbrains-mono), monospace",
-                  fontSize: "12px",
-                  lineHeight: 1.6,
-                  display: "flex",
-                  gap: "0.5rem",
-                  opacity: 0, // GSAP reveals
-                }}
+                className="font-mono text-[12px] leading-[1.6] flex gap-2"
+                style={{ opacity: 0 }} // GSAP reveals
               >
-                <span style={{ color: line.tagColor, flexShrink: 0, minWidth: "3.5rem" }}>
+                <span style={{ color: line.tagColor }} className="shrink-0 min-w-[3.5rem]">
                   {line.tag}
                 </span>
-                <span style={{ color: "#94A3B8" }}>{line.text}</span>
+                <span className="text-muted">{line.text}</span>
               </div>
             ))}
           </div>
@@ -255,14 +148,7 @@ export default function MulikaScans() {
       </div>
 
       {/* ── Marquee ticker ── */}
-      <div
-        style={{
-          width: "100%",
-          overflow: "hidden",
-          borderTop: "1px solid rgba(248, 250, 252, 0.04)",
-          padding: "1rem 0",
-        }}
-      >
+      <div className="w-full overflow-hidden border-t border-[rgba(248,250,252,0.04)] py-4">
         <style>{`
           @keyframes marquee-scroll {
             from { transform: translateX(0); }
@@ -270,23 +156,14 @@ export default function MulikaScans() {
           }
         `}</style>
         <div
-          style={{
-            display: "flex",
-            whiteSpace: "nowrap",
-            animation: "marquee-scroll 28s linear infinite",
-          }}
+          className="flex whitespace-nowrap"
+          style={{ animation: "marquee-scroll 28s linear infinite" }}
         >
           {/* Duplicate for seamless loop */}
           {[0, 1].map((n) => (
             <span
               key={n}
-              style={{
-                fontFamily: "var(--font-jetbrains-mono), monospace",
-                fontSize: "12px",
-                color: "rgba(248, 250, 252, 0.25)",
-                letterSpacing: "0.15em",
-                paddingRight: "2rem",
-              }}
+              className="font-mono text-[12px] text-[rgba(248,250,252,0.25)] tracking-[0.15em] pr-8"
             >
               {TICKER_TEXT.repeat(6)}
             </span>
@@ -304,28 +181,7 @@ function CTAButton({ href, children }: { href: string; children: React.ReactNode
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      style={{
-        display: "inline-block",
-        fontFamily: "var(--font-jetbrains-mono), monospace",
-        fontSize: "13px",
-        letterSpacing: "0.06em",
-        color: "#22D3EE",
-        border: "1px solid #22D3EE",
-        padding: "0.7rem 1.5rem",
-        borderRadius: "2px",
-        textDecoration: "none",
-        transition: "background-color 0.3s ease, color 0.3s ease",
-      }}
-      onMouseEnter={(e) => {
-        const el = e.currentTarget;
-        el.style.backgroundColor = "#22D3EE";
-        el.style.color = "#050C1A";
-      }}
-      onMouseLeave={(e) => {
-        const el = e.currentTarget;
-        el.style.backgroundColor = "transparent";
-        el.style.color = "#22D3EE";
-      }}
+      className="inline-block font-mono text-[13px] tracking-[0.06em] text-cyan border border-cyan py-[0.7rem] px-6 rounded-[2px] no-underline transition-colors duration-300 hover:bg-cyan hover:text-navy-deep"
     >
       {children}
     </a>
