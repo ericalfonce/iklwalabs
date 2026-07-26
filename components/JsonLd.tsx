@@ -22,7 +22,7 @@ const jsonLd = {
     "IT Infrastructure",
   ],
   sameAs: [
-    "https://github.com/ericalfonce",
+    "https://github.com/iklwalabs",
     "https://mulikascans.com",
   ],
   contactPoint: {

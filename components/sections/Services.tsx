@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -66,50 +66,20 @@ export default function Services() {
   return (
     <section
       ref={sectionRef}
-      style={{
-        backgroundColor: "#0A1628",
-        minHeight: "100vh",
-        padding: "1.5rem 2rem",
-        boxSizing: "border-box",
-        display: "flex",
-        flexDirection: "column",
-      }}
+      className="bg-navy min-h-screen py-6 px-8 flex flex-col"
     >
       {/* Section label */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: "4rem",
-          paddingTop: "1rem",
-        }}
-      >
-        <span
-          style={{
-            fontFamily: "var(--font-jetbrains-mono), monospace",
-            fontSize: "12px",
-            color: "#94A3B8",
-            letterSpacing: "0.2em",
-            textTransform: "uppercase",
-          }}
-        >
+      <div className="flex justify-between items-center mb-16 pt-4">
+        <span className="font-mono text-[12px] text-muted tracking-[0.2em] uppercase">
           Core Capabilities
         </span>
-        <span
-          style={{
-            fontFamily: "var(--font-jetbrains-mono), monospace",
-            fontSize: "12px",
-            color: "#94A3B8",
-            letterSpacing: "0.12em",
-          }}
-        >
+        <span className="font-mono text-[12px] text-muted tracking-[0.12em]">
           /03
         </span>
       </div>
 
       {/* Service list */}
-      <div style={{ flex: 1, maxWidth: "900px", width: "100%" }}>
+      <div className="flex-1 max-w-[900px] w-full">
         {SERVICES.map((service, i) => (
           <ServiceItem
             key={service.number}
@@ -136,79 +106,26 @@ interface ServiceItemProps {
 
 const ServiceItem = forwardRef<HTMLDivElement, ServiceItemProps>(
   ({ service }, ref) => {
-    const [hovered, setHovered] = useState(false);
-
     return (
       <div ref={ref} style={{ opacity: 0 }}>
         {/* Top rule */}
-        <div
-          style={{
-            height: "1px",
-            backgroundColor: "rgba(248, 250, 252, 0.05)",
-            width: "100%",
-          }}
-        />
+        <div className="h-px w-full bg-[rgba(248,250,252,0.05)]" />
 
-        <div
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-          style={{
-            display: "grid",
-            gridTemplateColumns: "3rem 1fr",
-            gap: "1.5rem",
-            padding: "1.75rem 0",
-            cursor: "default",
-          }}
-        >
+        <div className="group grid grid-cols-[3rem_1fr] gap-6 py-7 cursor-default">
           {/* Number */}
-          <span
-            style={{
-              fontFamily: "var(--font-jetbrains-mono), monospace",
-              fontSize: "13px",
-              color: "#22D3EE",
-              letterSpacing: "0.05em",
-              paddingTop: "3px",
-              flexShrink: 0,
-            }}
-          >
+          <span className="font-mono text-[13px] text-cyan tracking-[0.05em] pt-[3px] shrink-0">
             {service.number}
           </span>
 
           {/* Title + description */}
           <div>
-            <div
-              style={{
-                fontFamily: "var(--font-outfit), sans-serif",
-                fontWeight: 500,
-                fontSize: "clamp(1.1rem, 2vw, 1.5rem)",
-                color: "#F8FAFC",
-                letterSpacing: "-0.01em",
-                transition: "color 0.2s ease",
-                ...(hovered && { color: "#22D3EE" }),
-              }}
-            >
+            <div className="font-display font-medium text-[clamp(1.1rem,2vw,1.5rem)] text-white tracking-[-0.01em] transition-colors duration-200 group-hover:text-cyan">
               {service.title}
             </div>
 
             {/* Expandable description */}
-            <div
-              style={{
-                overflow: "hidden",
-                maxHeight: hovered ? "120px" : "0px",
-                transition: "max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-              }}
-            >
-              <p
-                style={{
-                  fontFamily: "var(--font-dm-sans), sans-serif",
-                  fontSize: "15px",
-                  lineHeight: 1.7,
-                  color: "#94A3B8",
-                  margin: 0,
-                  paddingTop: "0.75rem",
-                  maxWidth: "60ch",
-                }}
-              >
+            <div className="overflow-hidden max-h-0 group-hover:max-h-[120px] transition-[max-height] duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
+              <p className="font-sans text-[15px] leading-[1.7] text-muted m-0 pt-3 max-w-[60ch]">
                 {service.description}
               </p>
             </div>

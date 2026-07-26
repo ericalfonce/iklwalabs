@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -8,117 +9,35 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <main
-      style={{
-        backgroundColor: "#050C1A",
-        minHeight: "100vh",
-        padding: "1.5rem 2rem",
-        boxSizing: "border-box",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
+    <main className="bg-navy-deep min-h-screen py-6 px-8 flex flex-col">
       {/* Top bar */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "flex-start",
-          marginBottom: "6rem",
-        }}
-      >
-        <a
-          href="/"
-          style={{
-            fontFamily: "var(--font-outfit), sans-serif",
-            fontSize: "14px",
-            color: "#F8FAFC",
-            letterSpacing: "0.06em",
-            textDecoration: "none",
-          }}
-        >
+      <div className="flex justify-between items-start mb-24">
+        <Link href="/" className="font-display text-[14px] text-white tracking-[0.06em] no-underline">
           ← IklwaLabs
-        </a>
-        <span
-          style={{
-            fontFamily: "var(--font-jetbrains-mono), monospace",
-            fontSize: "12px",
-            color: "#94A3B8",
-            letterSpacing: "0.12em",
-          }}
-        >
+        </Link>
+        <span className="font-mono text-[12px] text-muted tracking-[0.12em]">
           /blog
         </span>
       </div>
 
       {/* Heading */}
-      <div style={{ maxWidth: "720px" }}>
-        <h1
-          style={{
-            fontFamily: "var(--font-outfit), sans-serif",
-            fontWeight: 700,
-            fontSize: "clamp(2.5rem, 7vw, 6rem)",
-            lineHeight: 1.05,
-            color: "#F8FAFC",
-            margin: "0 0 1rem",
-            letterSpacing: "-0.02em",
-          }}
-        >
+      <div className="max-w-[720px]">
+        <h1 className="font-display font-bold text-[clamp(2.5rem,7vw,6rem)] leading-[1.05] text-white mt-0 mx-0 mb-4 tracking-[-0.02em]">
           Insights
         </h1>
-        <p
-          style={{
-            fontFamily: "var(--font-dm-sans), sans-serif",
-            fontSize: "16px",
-            color: "#94A3B8",
-            margin: "0 0 4rem",
-            lineHeight: 1.7,
-          }}
-        >
+        <p className="font-sans text-[16px] text-muted mt-0 mx-0 mb-16 leading-[1.7]">
           Cybersecurity insights for African businesses.
         </p>
 
         {/* Placeholder card */}
-        <div
-          style={{
-            border: "1px solid rgba(34, 211, 238, 0.12)",
-            padding: "2rem",
-            maxWidth: "480px",
-          }}
-        >
-          <span
-            style={{
-              fontFamily: "var(--font-jetbrains-mono), monospace",
-              fontSize: "10px",
-              color: "#22D3EE",
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              display: "block",
-              marginBottom: "0.75rem",
-            }}
-          >
+        <div className="border border-[rgba(34,211,238,0.12)] p-8 max-w-[480px]">
+          <span className="font-mono text-[10px] text-cyan tracking-[0.14em] uppercase block mb-3">
             Coming Soon
           </span>
-          <h2
-            style={{
-              fontFamily: "var(--font-outfit), sans-serif",
-              fontWeight: 600,
-              fontSize: "18px",
-              color: "#F8FAFC",
-              margin: "0 0 0.5rem",
-            }}
-          >
+          <h2 className="font-display font-semibold text-[18px] text-white mt-0 mx-0 mb-2">
             First post coming soon
           </h2>
-          <p
-            style={{
-              fontFamily: "var(--font-dm-sans), sans-serif",
-              fontSize: "14px",
-              color: "#64748B",
-              margin: 0,
-              lineHeight: 1.6,
-            }}
-          >
+          <p className="font-sans text-[14px] text-[#64748B] m-0 leading-[1.6]">
             We&apos;re preparing cybersecurity articles tailored for African
             SMEs. Stay tuned.
           </p>
