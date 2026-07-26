@@ -59,7 +59,7 @@ export default async function BlogPostPage({
   };
 
   return (
-    <main className="bg-navy-deep min-h-screen py-6 px-8 flex flex-col">
+    <main className="bg-navy-deep min-h-[100dvh] py-6 px-8 flex flex-col">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}

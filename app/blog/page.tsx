@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <main className="bg-navy-deep min-h-screen py-6 px-8 flex flex-col">
+    <main className="bg-navy-deep min-h-[100dvh] py-6 px-8 flex flex-col">
       {/* Top bar */}
       <div className="flex justify-between items-start mb-24">
         <Link href="/" className="font-display text-[14px] text-white tracking-[0.06em] no-underline">

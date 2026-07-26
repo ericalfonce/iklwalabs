@@ -54,7 +54,7 @@ export default function MulikaScans() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-navy-deep min-h-screen pt-6 px-8 pb-0 flex flex-col overflow-hidden"
+      className="relative bg-navy-deep min-h-[100dvh] pt-6 px-8 pb-0 flex flex-col overflow-hidden"
       style={{
         // Radial glow
         backgroundImage:

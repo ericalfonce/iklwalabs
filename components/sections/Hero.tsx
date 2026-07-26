@@ -32,7 +32,7 @@ export default function Hero({ animate }: HeroProps) {
   const words = headline.split(" ");
 
   return (
-    <section className="relative w-full h-screen bg-navy-deep overflow-hidden py-6 px-8 flex flex-col">
+    <section className="relative w-full h-[100dvh] bg-navy-deep overflow-hidden py-6 px-8 flex flex-col">
       {/* Top bar */}
       <div className="flex justify-between items-start">
         {/* Logo + cursor */}

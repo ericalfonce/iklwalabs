@@ -5,7 +5,7 @@ const SOCIAL_LINKS = [
 
 export default function Contact() {
   return (
-    <section className="bg-navy-deep flex flex-col min-h-screen pt-6 px-8 pb-0">
+    <section className="bg-navy-deep flex flex-col min-h-[100dvh] pt-6 px-8 pb-0">
       {/* Section number */}
       <span className="font-mono text-[12px] text-muted tracking-[0.12em] mb-12">
         /06

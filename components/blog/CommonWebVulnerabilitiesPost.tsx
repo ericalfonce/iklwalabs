@@ -4,6 +4,7 @@ const h2 = "font-display font-bold text-[clamp(1.3rem,3vw,2rem)] text-white mt-1
 const p = "font-sans text-[16px] leading-[1.85] text-muted m-0 mb-5 max-w-[70ch]";
 const ul = "font-sans text-[16px] leading-[1.85] text-muted m-0 mb-5 pl-5 max-w-[70ch] list-disc space-y-2";
 const strongCyan = "text-cyan font-medium";
+const code = "font-mono text-[0.9em] text-cyan break-words";
 
 export default function CommonWebVulnerabilitiesPost() {
   return (
@@ -38,10 +39,10 @@ export default function CommonWebVulnerabilitiesPost() {
 
       <h2 className={h2}>2. Missing Security Headers</h2>
       <p className={p}>
-        Headers like <code>X-Frame-Options</code>,{" "}
-        <code>Content-Security-Policy</code>, and{" "}
-        <code>Strict-Transport-Security</code> cost nothing to add but are
-        skipped constantly. Without <code>X-Frame-Options</code>, for
+        Headers like <code className={code}>X-Frame-Options</code>,{" "}
+        <code className={code}>Content-Security-Policy</code>, and{" "}
+        <code className={code}>Strict-Transport-Security</code> cost nothing to add but are
+        skipped constantly. Without <code className={code}>X-Frame-Options</code>, for
         example, your site can be embedded in an invisible frame on another
         page — a technique called clickjacking, used to trick visitors into
         clicking things they didn&apos;t intend to.
@@ -56,7 +57,7 @@ export default function CommonWebVulnerabilitiesPost() {
 
       <h2 className={h2}>3. Exposed Admin Panels with Weak Credentials</h2>
       <p className={p}>
-        <code>/admin</code>, <code>/wp-admin</code>, and similar paths are
+        <code className={code}>/admin</code>, <code className={code}>/wp-admin</code>, and similar paths are
         the first thing an automated scanner checks, and they&apos;re
         rarely hidden. Combined with a default or weak password — or no
         rate limiting on login attempts — an exposed admin panel becomes a
@@ -94,7 +95,7 @@ export default function CommonWebVulnerabilitiesPost() {
       <p className={p}>
         <span className={strongCyan}>Fix:</span>{" "}force HTTPS redirects
         site-wide, make sure every asset the page loads is served over
-        HTTPS too, and enable <code>Strict-Transport-Security</code> so
+        HTTPS too, and enable <code className={code}>Strict-Transport-Security</code> so
         browsers refuse to fall back to HTTP. Free certificates from
         Let&apos;s Encrypt make this close to zero-cost.
       </p>

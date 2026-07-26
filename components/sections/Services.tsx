@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -86,7 +86,7 @@ export default function Services() {
   return (
     <section
       ref={sectionRef}
-      className="bg-navy min-h-screen py-6 px-8 flex flex-col"
+      className="bg-navy min-h-[100dvh] py-6 px-8 flex flex-col"
     >
       {/* Section label */}
       <div className="flex justify-between items-center mb-16 pt-4">
@@ -127,34 +127,57 @@ interface ServiceItemProps {
 
 const ServiceItem = forwardRef<HTMLDivElement, ServiceItemProps>(
   ({ service }, ref) => {
+    const [open, setOpen] = useState(false);
+
     return (
       <div ref={ref} style={{ opacity: 0 }}>
         {/* Top rule */}
         <div className="h-px w-full bg-[rgba(248,250,252,0.05)]" />
 
-        <div className="group grid grid-cols-[3rem_1fr] gap-6 py-7 cursor-default">
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          className="w-full grid grid-cols-[3rem_1fr_auto] gap-6 py-7 text-left cursor-pointer bg-transparent border-none"
+        >
           {/* Number */}
           <span className="font-mono text-[13px] text-cyan tracking-[0.05em] pt-[3px] shrink-0">
             {service.number}
           </span>
 
-          {/* Title + description */}
-          <div>
-            <div className="font-display font-medium text-[clamp(1.1rem,2vw,1.5rem)] text-white tracking-[-0.01em] transition-colors duration-200 group-hover:text-cyan">
-              {service.title}
-            </div>
+          <div
+            className={`font-display font-medium text-[clamp(1.1rem,2vw,1.5rem)] tracking-[-0.01em] transition-colors duration-200 ${
+              open ? "text-cyan" : "text-white"
+            }`}
+          >
+            {service.title}
+          </div>
 
-            {/* Expandable description */}
-            <div className="overflow-hidden max-h-0 group-hover:max-h-[260px] transition-[max-height] duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
-              <p className="font-sans text-[15px] leading-[1.7] text-muted m-0 pt-3 max-w-[60ch]">
-                {service.description}
-              </p>
-              <ul className="font-sans text-[13px] leading-[1.6] text-muted m-0 mt-3 pl-4 max-w-[60ch] list-disc space-y-1">
-                {service.details.map((detail) => (
-                  <li key={detail}>{detail}</li>
-                ))}
-              </ul>
-            </div>
+          <span
+            className={`font-mono text-[18px] text-cyan shrink-0 transition-transform duration-300 ${
+              open ? "rotate-45" : ""
+            }`}
+          >
+            +
+          </span>
+        </button>
+
+        {/* Expandable description */}
+        <div
+          className={`grid grid-cols-[3rem_1fr] gap-6 overflow-hidden transition-[max-height] duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
+            open ? "max-h-[260px]" : "max-h-0"
+          }`}
+        >
+          <div />
+          <div>
+            <p className="font-sans text-[15px] leading-[1.7] text-muted m-0 pb-3 max-w-[60ch]">
+              {service.description}
+            </p>
+            <ul className="font-sans text-[13px] leading-[1.6] text-muted m-0 mb-6 pl-4 max-w-[60ch] list-disc space-y-1">
+              {service.details.map((detail) => (
+                <li key={detail}>{detail}</li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

@@ -64,7 +64,7 @@ export default function About() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-navy-deep min-h-screen py-6 px-8 flex flex-col overflow-hidden"
+      className="relative bg-navy-deep min-h-[100dvh] py-6 px-8 flex flex-col overflow-hidden"
     >
       {/* Section number */}
       <span className="font-mono text-[12px] text-muted tracking-[0.12em] mb-12">

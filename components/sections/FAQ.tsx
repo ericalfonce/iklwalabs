@@ -85,7 +85,7 @@ export default function FAQ() {
   return (
     <section
       ref={sectionRef}
-      className="bg-navy-deep min-h-screen py-6 px-8 flex flex-col"
+      className="bg-navy-deep min-h-[100dvh] py-6 px-8 flex flex-col"
     >
       <script
         type="application/ld+json"
