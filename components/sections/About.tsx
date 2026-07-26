@@ -12,10 +12,17 @@ export default function About() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const stat1Ref = useRef<HTMLDivElement>(null);
   const stat2Ref = useRef<HTMLDivElement>(null);
+  const stat3Ref = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      if (!headlineRef.current || !stat1Ref.current || !stat2Ref.current) return;
+      if (
+        !headlineRef.current ||
+        !stat1Ref.current ||
+        !stat2Ref.current ||
+        !stat3Ref.current
+      )
+        return;
 
       // Clip-path reveal on the headline
       gsap.fromTo(
@@ -35,7 +42,7 @@ export default function About() {
 
       // Stat blocks staggered fade + drift
       gsap.fromTo(
-        [stat1Ref.current, stat2Ref.current],
+        [stat1Ref.current, stat2Ref.current, stat3Ref.current],
         { y: 20, opacity: 0 },
         {
           y: 0,
@@ -82,6 +89,15 @@ export default function About() {
             institutions. We believe the continent&apos;s digital future must be
             defended from within.
           </p>
+
+          <p className="font-sans text-[16px] leading-[1.8] text-muted m-0 max-w-[52ch]">
+            Our approach is practical over theoretical: clear, prioritized
+            findings instead of jargon-heavy reports, and remediation guidance
+            that a small IT team can actually act on. We work directly with
+            founders and operators, not through layers of account managers —
+            so security advice stays grounded in how African SMEs actually
+            run.
+          </p>
         </div>
 
         {/* Right column — stat blocks (off-grid) */}
@@ -96,6 +112,11 @@ export default function About() {
             rotation="1deg"
             label="IklwaLabs · Digital Forensics & Cybersecurity"
             alignRight
+          />
+          <StatBlock
+            ref={stat3Ref}
+            rotation="-1deg"
+            label="Built for African SMEs · Local Context"
           />
         </div>
       </div>

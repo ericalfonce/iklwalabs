@@ -13,24 +13,44 @@ const SERVICES = [
     title: "Web Vulnerability Assessment",
     description:
       "Automated and manual scanning of web applications. We find what attackers find — before they do.",
+    details: [
+      "OWASP Top 10 coverage across authenticated & unauthenticated scans",
+      "Manual verification to cut false positives",
+      "Plain-language report with prioritized remediation steps",
+    ],
   },
   {
     number: "02",
     title: "Digital Forensics & Incident Response",
     description:
       "Evidence collection, analysis, and post-incident reporting for organizations across East Africa.",
+    details: [
+      "Evidence preservation following chain-of-custody practice",
+      "Root-cause analysis and incident timeline reconstruction",
+      "Post-incident report suitable for management and legal review",
+    ],
   },
   {
     number: "03",
     title: "Security Awareness & Training",
     description:
       "Practical cybersecurity training for teams, institutions, and communities.",
+    details: [
+      "Phishing and social-engineering simulations",
+      "Role-specific sessions for staff, IT teams, and leadership",
+      "Practical playbooks, not just slides",
+    ],
   },
   {
     number: "04",
     title: "IT Infrastructure & Solutions",
     description:
       "Network setup, configuration, and hardening for small-to-medium organizations.",
+    details: [
+      "Network segmentation and firewall configuration",
+      "Endpoint and access-control hardening",
+      "Ongoing monitoring and patch-management guidance",
+    ],
   },
 ];
 
@@ -101,6 +121,7 @@ interface ServiceItemProps {
     number: string;
     title: string;
     description: string;
+    details: string[];
   };
 }
 
@@ -124,10 +145,15 @@ const ServiceItem = forwardRef<HTMLDivElement, ServiceItemProps>(
             </div>
 
             {/* Expandable description */}
-            <div className="overflow-hidden max-h-0 group-hover:max-h-[120px] transition-[max-height] duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
+            <div className="overflow-hidden max-h-0 group-hover:max-h-[260px] transition-[max-height] duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
               <p className="font-sans text-[15px] leading-[1.7] text-muted m-0 pt-3 max-w-[60ch]">
                 {service.description}
               </p>
+              <ul className="font-sans text-[13px] leading-[1.6] text-muted m-0 mt-3 pl-4 max-w-[60ch] list-disc space-y-1">
+                {service.details.map((detail) => (
+                  <li key={detail}>{detail}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

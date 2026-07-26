@@ -63,7 +63,7 @@ export default function MulikaScans() {
     >
       {/* Section number */}
       <span className="font-mono text-[12px] text-muted tracking-[0.12em] mb-12">
-        /03
+        /04
       </span>
 
       {/* Two-column body */}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BLOG_POSTS } from "@/lib/blog-posts";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -29,18 +30,30 @@ export default function BlogPage() {
           Cybersecurity insights for African businesses.
         </p>
 
-        {/* Placeholder card */}
-        <div className="border border-[rgba(34,211,238,0.12)] p-8 max-w-[480px]">
-          <span className="font-mono text-[10px] text-cyan tracking-[0.14em] uppercase block mb-3">
-            Coming Soon
-          </span>
-          <h2 className="font-display font-semibold text-[18px] text-white mt-0 mx-0 mb-2">
-            First post coming soon
-          </h2>
-          <p className="font-sans text-[14px] text-[#64748B] m-0 leading-[1.6]">
-            We&apos;re preparing cybersecurity articles tailored for African
-            SMEs. Stay tuned.
-          </p>
+        {/* Post list */}
+        <div className="flex flex-col gap-6">
+          {BLOG_POSTS.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="group block border border-[rgba(34,211,238,0.12)] p-8 max-w-[560px] no-underline transition-colors duration-200 hover:border-cyan"
+            >
+              <span className="font-mono text-[10px] text-cyan tracking-[0.14em] uppercase block mb-3">
+                {new Date(post.date).toLocaleDateString("en-GB", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}{" "}
+                · {post.readingTime}
+              </span>
+              <h2 className="font-display font-semibold text-[20px] text-white mt-0 mx-0 mb-2 transition-colors duration-200 group-hover:text-cyan">
+                {post.title}
+              </h2>
+              <p className="font-sans text-[14px] text-muted m-0 leading-[1.6]">
+                {post.description}
+              </p>
+            </Link>
+          ))}
         </div>
       </div>
     </main>
