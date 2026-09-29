@@ -4,6 +4,7 @@ import "./globals.css";
 import Cursor from "@/components/Cursor";
 import SmoothScroll from "@/components/SmoothScroll";
 import JsonLd from "@/components/JsonLd";
+import CookieBanner from "@/components/CookieBanner";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -107,6 +108,9 @@ export default function RootLayout({
         className={`${outfit.variable} ${dmSans.variable} ${jetbrainsMono.variable} antialiased`}
       >
         <JsonLd />
+        {/* First in the DOM so keyboard users reach the consent controls
+            immediately, while staying visually pinned to the bottom. */}
+        <CookieBanner />
         <SmoothScroll>{children}</SmoothScroll>
         <Cursor />
       </body>

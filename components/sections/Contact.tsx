@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const SOCIAL_LINKS = [
   { label: "GitHub",    href: "https://github.com/iklwalabs" },
   { label: "Instagram", href: "https://instagram.com/iklwalabs" },
@@ -44,14 +46,22 @@ export default function Contact() {
         <span className="font-mono text-[11px] text-muted tracking-[0.06em]">
           IklwaLabs © 2025 — Arusha, Tanzania
         </span>
-        <a
-          href="https://mulikascans.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-mono text-[11px] text-muted no-underline tracking-[0.06em] transition-colors duration-200 hover:text-cyan"
-        >
-          mulikascans.com
-        </a>
+        <div className="flex items-center gap-6 flex-wrap">
+          <Link
+            href="/cookies"
+            className="font-mono text-[11px] text-muted no-underline tracking-[0.06em] transition-colors duration-200 hover:text-cyan"
+          >
+            Cookie Policy
+          </Link>
+          <a
+            href="https://mulikascans.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-[11px] text-muted no-underline tracking-[0.06em] transition-colors duration-200 hover:text-cyan"
+          >
+            mulikascans.com
+          </a>
+        </div>
       </div>
     </section>
   );
