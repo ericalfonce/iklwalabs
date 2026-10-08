@@ -54,6 +54,10 @@ export default function MulikaScans() {
   return (
     <section
       ref={sectionRef}
+      // Target for the /#mulikascans deep link. A blog post links here and there was no
+      // element with this id, so the browser scrolled to the top of the page instead of to
+      // this section.
+      id="mulikascans"
       className="relative bg-navy-deep min-h-[100dvh] pt-6 px-8 pb-0 flex flex-col overflow-hidden"
       style={{
         // Radial glow
