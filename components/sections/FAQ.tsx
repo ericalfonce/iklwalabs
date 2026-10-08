@@ -98,7 +98,7 @@ export default function FAQ() {
           Frequently Asked Questions
         </span>
         <span className="font-mono text-[12px] text-muted tracking-[0.12em]">
-          /05
+          /06
         </span>
       </div>
 

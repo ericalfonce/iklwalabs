@@ -7,6 +7,7 @@ import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
 import MulikaScans from "@/components/sections/MulikaScans";
+import Sentinel from "@/components/sections/Sentinel";
 import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
 
@@ -25,6 +26,7 @@ export default function Home() {
         <About />
         <Services />
         <MulikaScans />
+        <Sentinel />
         <FAQ />
         <Contact />
       </motion.div>

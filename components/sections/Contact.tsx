@@ -10,7 +10,7 @@ export default function Contact() {
     <section className="bg-navy-deep flex flex-col min-h-[100dvh] pt-6 px-8 pb-0">
       {/* Section number */}
       <span className="font-mono text-[12px] text-muted tracking-[0.12em] mb-12">
-        /06
+        /07
       </span>
 
       {/* Center body */}
